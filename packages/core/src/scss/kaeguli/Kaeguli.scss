@@ -1,0 +1,126 @@
+// ==========================================================================
+// Kaeguli KPOP Shop — Checkout branding layer
+// ==========================================================================
+// This file contains all Kaeguli-specific styling for the custom checkout.
+// Keep it isolated so upstream merges stay clean.
+
+// Brand tokens
+$kaeguli-frog: #deee8a;
+$kaeguli-forest: #36593f;
+$kaeguli-spring-green: #bfd071;
+$kaeguli-peony: #f3708e;
+$kaeguli-happy-pink: #f693af;
+$kaeguli-black: #231f20;
+$kaeguli-white: #ffffff;
+$kaeguli-muted: #59514a;
+
+// ---------------------------------------------------------------------------
+// Checkout header
+// ---------------------------------------------------------------------------
+.kaeguli-checkout-header {
+  padding: 24px 0 16px;
+
+  &__title {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: $kaeguli-black;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  &__frog {
+    display: block;
+    width: 140px;
+    height: auto;
+    margin: 12px 0 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Preorder banner
+// ---------------------------------------------------------------------------
+.kaeguli-preorder-banner {
+  background-color: rgba($kaeguli-happy-pink, 0.4);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 0 0 24px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $kaeguli-black;
+
+  &__title {
+    font-weight: 700;
+    margin: 0 0 4px;
+  }
+
+  &__text {
+    font-weight: 400;
+    color: $kaeguli-muted;
+  }
+
+  p + p {
+    margin-top: 8px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Global overrides — keep these minimal
+// ---------------------------------------------------------------------------
+
+// Primary buttons → Peony
+.optimizedCheckout-buttonPrimary {
+  background-color: $kaeguli-peony !important;
+  border-color: $kaeguli-peony !important;
+  color: $kaeguli-white !important;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  border-radius: 999px;
+
+  &:hover,
+  &:focus {
+    background-color: darken($kaeguli-peony, 8%) !important;
+    border-color: darken($kaeguli-peony, 8%) !important;
+  }
+}
+
+// Form input focus ring
+.optimizedCheckout-form-input:focus {
+  border-color: $kaeguli-spring-green !important;
+  box-shadow: 0 0 0 1px $kaeguli-spring-green !important;
+}
+
+// Heading colors
+.optimizedCheckout-headingPrimary {
+  color: $kaeguli-black !important;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+}
+
+.optimizedCheckout-headingSecondary {
+  color: $kaeguli-forest !important;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+}
+
+// Order summary header
+.optimizedCheckout-orderSummary {
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+// Links
+.optimizedCheckout-contentPrimary a {
+  color: $kaeguli-peony;
+
+  &:hover {
+    color: darken($kaeguli-peony, 12%);
+  }
+}
+
+// Step header active indicator
+.stepHeader--first::before,
+.stepHeader--second::before,
+.stepHeader--third::before {
+  background-color: $kaeguli-spring-green !important;
+}

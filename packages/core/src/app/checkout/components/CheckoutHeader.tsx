@@ -10,6 +10,7 @@ import { PromotionBannerList } from '../../promotion';
 import CheckoutStepType from '../CheckoutStepType';
 
 import { BackorderQuantitiesChangedBanner } from './BackorderQuantitiesChangedBanner';
+import { KaeguliPreorderBanner } from './KaeguliPreorderBanner';
 
 export interface CheckoutHeaderProps {
     activeStepType?: CheckoutStepType;
@@ -47,8 +48,26 @@ export const CheckoutHeader: React.FC<CheckoutHeaderProps> = ({
         ? activeStepType === CheckoutStepType.Payment
         : defaultStepType === CheckoutStepType.Payment;
 
+    // Determine step label for Kaeguli header
+    const stepLabel = isPaymentStepActive ? 'Payment' : 'Checkout';
+    const frogImage = isPaymentStepActive
+        ? 'PAYMENT FROG-01.png'
+        : 'CHECKOUT PAGE FROG-01.png';
+
     return (
         <>
+            {/* Kaeguli branded header */}
+            <div className="kaeguli-checkout-header">
+                <h1 className="kaeguli-checkout-header__title">{stepLabel}</h1>
+                <img
+                    alt=""
+                    className="kaeguli-checkout-header__frog"
+                    src={`/content/kaeguli-checkout/${frogImage}`}
+                />
+            </div>
+
+            <KaeguliPreorderBanner />
+
             <BackorderQuantitiesChangedBanner message={flashMessages?.[0]?.message} />
             <LoadingNotification isLoading={extensionState.isShowingLoadingIndicator} />
             <PromotionBannerList promotions={promotions} />
